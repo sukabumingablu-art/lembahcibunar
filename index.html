@@ -14,16 +14,15 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero">Beranda</a></li>
       <li><a href="#about">Tentang</a></li>
-      <li><a href="#gallery">Galeri</a></li>
       <li><a href="#packages">Paket</a></li>
-      <li><a href="#pricing">Harga</a></li>
-      <li><a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20booking%20camping%20di%20Lembah%20Cibunar" target="_blank" class="btn-nav">Booking</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20booking%20camping%20di%20Lembah%20Cibunar" target="_blank">Booking</a></li>
     </ul>
     <div class="menu-toggle" id="menuToggle">☰</div>
   </nav>
 
   <!-- Hero -->
-  <header class="hero" id="hero" style="background-image: url('img/hero.jpg');">
+  <header class="hero" id="hero">
     <div class="overlay"></div>
     <div class="hero-content fade-in">
       <h1>Lembah Cibunar</h1>
@@ -31,8 +30,8 @@
       <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20booking%20camping%20di%20Lembah%20Cibunar" target="_blank" class="btn">Booking via WhatsApp</a>
     </div>
   </header>
-
-  <!-- Gallery -->
+  
+  <!-- Gallery Section -->
   <section id="gallery" class="gallery">
     <h2>Galeri</h2>
     <div class="gallery-grid">
@@ -41,7 +40,7 @@
       <img src="img/galeri3.jpg" alt="Camping 3">
     </div>
   </section>
-
+  
   <!-- Tentang -->
   <section class="about fade-in" id="about">
     <h2>Tentang Kami</h2>
@@ -70,45 +69,6 @@
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing fade-in">
-    <h2>Harga & Penawaran</h2>
-    <div class="pricing-cards">
-      <div class="price-card">
-        <h3>Paket Reguler</h3>
-        <p class="price">Rp 50.000 / orang</p>
-        <ul>
-          <li>Area camping standar</li>
-          <li>Akses toilet umum</li>
-          <li>Parkir gratis</li>
-        </ul>
-        <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Paket%20Reguler" target="_blank" class="btn">Pesan Sekarang</a>
-      </div>
-
-      <div class="price-card popular">
-        <h3>Paket Premium</h3>
-        <p class="price">Rp 150.000 / orang</p>
-        <ul>
-          <li>Tenda besar + kasur</li>
-          <li>Listrik & lampu</li>
-          <li>Free BBQ set</li>
-        </ul>
-        <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Paket%20Premium" target="_blank" class="btn">Pesan Sekarang</a>
-      </div>
-
-      <div class="price-card">
-        <h3>Paket Gathering</h3>
-        <p class="price">Rp 500.000 / grup</p>
-        <ul>
-          <li>Area luas hingga 50 orang</li>
-          <li>Sound system</li>
-          <li>Api unggun</li>
-        </ul>
-        <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20pesan%20Paket%20Gathering" target="_blank" class="btn">Pesan Sekarang</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="footer fade-in">
     <p>© 2025 Lembah Cibunar. All Rights Reserved.</p>
@@ -116,15 +76,13 @@
 
   <!-- Scripts -->
   <script>
-    // Toggle Navbar
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
 
-    // Fade-in Animations
-    const faders = document.querySelectorAll('.fade-in, .card, .price-card');
+    const faders = document.querySelectorAll('.fade-in, .card');
     const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
     const appearOnScroll = new IntersectionObserver(function(entries, observer) {
       entries.forEach(entry => {
