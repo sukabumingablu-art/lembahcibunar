@@ -8,10 +8,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🌲 Lembah Cibunar</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#packages">Paket</a></li>
+      <li><a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20booking%20camping%20di%20Lembah%20Cibunar" target="_blank">Booking</a></li>
+    </ul>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+  </nav>
+
   <!-- Hero -->
-  <header class="hero">
+  <header class="hero" id="hero">
     <div class="overlay"></div>
-    <div class="hero-content">
+    <div class="hero-content fade-in">
       <h1>Lembah Cibunar</h1>
       <p>Camping Ground & Wisata Alam di Sukabumi</p>
       <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20booking%20camping%20di%20Lembah%20Cibunar" target="_blank" class="btn">Booking via WhatsApp</a>
@@ -19,38 +31,58 @@
   </header>
 
   <!-- Tentang -->
-  <section class="about">
+  <section class="about fade-in" id="about">
     <h2>Tentang Kami</h2>
     <p>
-      Lembah Cibunar adalah destinasi wisata alam dan camping ground di Sukabumi dengan suasana sejuk, asri, dan penuh ketenangan. Cocok untuk liburan keluarga, komunitas, maupun acara gathering.
+      Lembah Cibunar adalah destinasi wisata alam dan camping ground di Sukabumi 
+      dengan suasana sejuk, asri, dan penuh ketenangan. Cocok untuk liburan keluarga, komunitas, maupun acara outdoor.
     </p>
   </section>
 
-  <!-- Paket Camping -->
-  <section class="packages">
+  <!-- Paket -->
+  <section class="packages fade-in" id="packages">
     <h2>Paket Camping</h2>
     <div class="cards">
       <div class="card">
-        <h3>Paket Hemat</h3>
-        <p>Tenda kapasitas 2 orang, include listrik & toilet.</p>
-        <span class="price">Rp150.000/malam</span>
+        <h3>Paket Reguler</h3>
+        <p>Area camping standar, cocok untuk keluarga & komunitas kecil.</p>
       </div>
       <div class="card">
-        <h3>Paket Keluarga</h3>
-        <p>Tenda kapasitas 4 orang, include listrik & toilet.</p>
-        <span class="price">Rp300.000/malam</span>
+        <h3>Paket Premium</h3>
+        <p>Fasilitas tambahan seperti listrik, tenda besar, dan BBQ set.</p>
       </div>
       <div class="card">
-        <h3>Paket Komunitas</h3>
-        <p>Area luas untuk 10+ orang, cocok untuk gathering.</p>
-        <span class="price">Rp1.000.000/malam</span>
+        <h3>Paket Gathering</h3>
+        <p>Area luas untuk acara komunitas, lengkap dengan sound system & api unggun.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Lembah Cibunar. All Rights Reserved.</p>
+  <footer class="footer fade-in">
+    <p>© 2025 Lembah Cibunar. All Rights Reserved.</p>
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle Navbar
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Fade-in Sections & Cards
+    const faders = document.querySelectorAll('.fade-in, .card');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
 </body>
 </html>
